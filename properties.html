@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="arb" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table with Checkboxes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="home.html">MyWebsite</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="./home.html">Home</a></li>
+                    <li><a href="./AboutUs.html">About Us</a></li>
+                    <li><a href="./Properties.html">Properties</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <table id="myTable" >
+        <thead>
+            <tr>
+              <tr  style="color:rgb(41, 156, 233); " class="q1">
+                <th >اختيار</th>
+                <th >المدينة</th>
+                <th>تفصيل</th>
+                <th> الأيجار الشهري</th>
+                <th>اظهار التفاصيل</th>
+              </tr>
+            </tr>
+        </thead>
+        <tbody>
+           
+        </tbody>
+    </table>
+    <button id="getSelectedData" style="margin: 10px;">متابعة</button>
+    
+      <div class="form-container">
+        <h1>نموذج الطلب</h1>
+        <form id="applicationForm">
+          <label for="name">الاسم الكامل:</label>
+          <input type="text" name="name" id="name"  pattern="^[\u0621-\u064A\s]+$" title="يرجى إدخال أحرف هجائية فقط باللغة العربية.">
+      
+          <label for="idName">الرقم الوطني:</label>
+          <input type="text" name="idName" id="idName" required pattern="^(0[1-9]|1[0-4])\d{9}$" title="يرجى إدخال رقم وطني صحيح مكون من 11 خانة، حيث تشير الخانتين الأوليين إلى المحافظة.">
+      
+          <label for="date">تاريخ الميلاد:</label>
+          <input type="date" name="date" id="date" >
+      
+          <label for="phone">رقم الموبايل:</label>
+          <input type="text" name="phone" id="phone"  pattern="^(09[3-8]\d{7})$" title="يرجى إدخال رقم هاتف صحيح يبدأ بـ 09 ويتبعه 8 أرقام.">
+      
+          <label for="mail">البريد الإلكتروني:</label>
+          <input type="email" name="mail" id="mail" >
+      
+          <label for="captcha">الرجاء إدخال الرقم التالي:</label>
+          <div id="captchaContainer"></div>
+          <input type="text" id="captchaInput" required pattern="^\d{5}$" title="يرجى إدخال الرقم المكون من 5 أرقام المعروض في الكابتشا.">
+      
+          <button id="submit" type="submit">إرسال</button>
+      </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script src="./myfunction.js">
+   </script>
+</body> 
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>عرض البيانات</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .details-row {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="home.html">MyWebsite</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="./home.html">Home</a></li>
+                    <li><a href="./AboutUs.html">About Us</a></li>
+                    <li><a href="./Properties.html">Properties</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <h1>عرض البيانات</h1>
+    <table id="data-table">
+        <thead>
+            <tr>
+                <th>المدينة</th>
+                <th>تفصيل</th>
+                <th>الأيجار الشهري</th>
+                <th>مواصفات</th>
+                <th>حالة</th>
+                <th>صور</th>
+            </tr>
+        </thead>
+        <tbody>
+           
+        </tbody>
+    </table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+           
+            const selectedData = JSON.parse(localStorage.getItem('selectedData'));
+            const tableBody = document.querySelector('#data-table tbody');
+
+          
+            if (selectedData && selectedData.length > 0) {
+                selectedData.forEach(item => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${item.city}</td>
+                        <td>${item.title}</td>
+                        <td>${item.price} ل س </td>
+                        <td>${item.detail.aria.join(', ')}</td>
+                        <td>${item.detail.state.join(', ')}</td>
+                        <td>
+                            ${item.detail.img.map(imgSrc => `<img src="${imgSrc}" alt="img" width="100" style="margin: 5px;">`).join('')}
+                        </td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } else {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td colspan="6">لا توجد بيانات للعرض</td>`;
+                tableBody.appendChild(row);
+            }
+        });
+    </script>
+</body>
+</html>
